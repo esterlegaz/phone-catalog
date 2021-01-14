@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+.header__title {
+  background: #1f735e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: white;
+  height: 125px;
+  font-size: 3rem;
+}

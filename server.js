@@ -88,7 +88,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/phones', (req, res) => {
-    res.send(phones);
+    // Timeout included to simulate API delayed response
+    setTimeout(function() {
+        res.send(phones);
+    }, 5000);
 });
 
 

@@ -15,3 +15,14 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
+
+.spinner__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    svg {
+        color: #1f735e;
+    }
+}

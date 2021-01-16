@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/phones', (req, res) => {
   // Timeout included to simulate API delayed response
-  setTimeout(function () {
+  setTimeout( () => {
     fs.readFile('./data/phones.json', (err, json) => {
       const obj = JSON.parse(json);
       res.json(obj);

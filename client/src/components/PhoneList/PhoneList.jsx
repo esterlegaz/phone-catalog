@@ -3,12 +3,14 @@ import "./PhoneList.scss";
 import PhoneItem from './../PhoneItem/PhoneItem';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class PhoneList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            phones: []
+            phones: [],
+            isLoading: false
         };
     }
 
@@ -17,6 +19,9 @@ class PhoneList extends React.Component {
     }
 
     listMenuItems = () => {
+        this.setState({
+            isLoading: true
+        })
         fetch("/phones")
             .then((response) => {
                 return response.json();
@@ -25,35 +30,48 @@ class PhoneList extends React.Component {
                 this.setState({
                     phones: data
                 });
+            })
+            .finally(() => {
+                this.setState({
+                    isLoading: false
+                })
             });
     };
 
     render() {
         return (
             <>
-                <div className="form__hint">
-                    <p>Do you want to add a new phone?</p>
-                    <Link to="/form">
-                        <Button variant="outlined" size="large">Click here</Button>
-                    </Link>
-                </div>
-
-                {this.state.phones && this.state.phones.length > 0 && (
+                {this.state.isLoading ?
+                    <div className="spinner__container">
+                        <CircularProgress size="5rem" disableShrink />
+                    </div>
+                    :
                     <>
-                        <h2 className="list__title">Find your phone</h2>
-                        <ul className="list__container">
-                            {this.state.phones.map((phone, index) => {
-                                return (
-                                    <PhoneItem
-                                        key={index}
-                                        id={"phone-" + phone.id.toString()}
-                                        information={phone}
-                                    />
-                                );
-                            })}
-                        </ul>
+                        <div className="form__hint">
+                            <p>Do you want to add a new phone?</p>
+                            <Link to="/form">
+                                <Button variant="outlined" size="large">Click here</Button>
+                            </Link>
+                        </div>
+
+                        {this.state.phones && this.state.phones.length > 0 && (
+                            <>
+                                <h2 className="list__title">Find your phone</h2>
+                                <ul className="list__container">
+                                    {this.state.phones.map((phone, index) => {
+                                        return (
+                                            <PhoneItem
+                                                key={index}
+                                                id={"phone-" + phone.id.toString()}
+                                                information={phone}
+                                            />
+                                        );
+                                    })}
+                                </ul>
+                            </>
+                        )}
                     </>
-                )}
+                }
             </>
         )
     }

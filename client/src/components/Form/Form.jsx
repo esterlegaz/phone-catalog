@@ -61,91 +61,101 @@ class Form extends React.Component {
             <form className="form">
                 <div className="input__container">
                     <TextField
+                        id="name"
                         required
                         name='name'
                         variant='outlined'
                         label='Name'
-                        onKeyUp={this.handleChange}
+                        onChange={this.handleChange}
                     />
                 </div>
                 <div className="input__container">
                     <TextField
+                        id="manufacturer"
                         required
                         name='manufacturer'
                         variant='outlined'
                         label='Manufacturer'
-                        onKeyUp={this.handleChange}
+                        onChange={this.handleChange}
                     />
                 </div>
                 <div className="input__container">
                     <TextField
+                        id="color"
                         required
                         name='color'
                         variant='outlined'
                         label='Color'
-                        onKeyUp={this.handleChange}
+                        onChange={this.handleChange}
                     />
                 </div>
                 <div className="input__container">
                     <TextField
+                        id="price"
                         required
                         name='price'
                         variant='outlined'
                         label='Price'
-                        onKeyUp={this.handleChange}
+                        onChange={this.handleChange}
                     />
                 </div>
                 <div className="input__container">
                     <TextField
+                        id='screen'
                         required
                         name='screen'
                         variant='outlined'
                         label='Screen'
-                        onKeyUp={this.handleChange}
+                        onChange={this.handleChange}
                     />
                 </div>
                 <div className="input__container">
                     <TextField
+                        id='processor'
                         required
                         name='processor'
                         variant='outlined'
                         label='Processor'
-                        onKeyUp={this.handleChange}
+                        onChange={this.handleChange}
                     />
                 </div>
                 <div className="input__container">
                     <TextField
+                        id='ram'
                         required
                         name='ram'
                         variant='outlined'
                         label='RAM'
-                        onKeyUp={this.handleChange}
+                        onChange={this.handleChange}
                     />
                 </div>
                 <div className="input__container">
                     <TextField
+                        id='description'
                         required
                         name='description'
                         label='Short description'
                         multiline
                         rows={2}
                         variant='outlined'
-                        onKeyUp={this.handleChange}
+                        onChange={this.handleChange}
                     />
                 </div>
                 <div className="input__container">
                     <TextField
+                        id='extraInfo'
                         required
                         name='extraInfo'
                         label='Detailed description'
                         multiline
                         rows={4}
                         variant='outlined'
-                        onKeyUp={this.handleChange}
+                        onChange={this.handleChange}
                     />
                 </div>
 
                 <Button
+                    id="formLink"
                     onClick={this.handleSubmit}
                     color='primary'
                     autoFocus

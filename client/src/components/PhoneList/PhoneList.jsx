@@ -1,6 +1,8 @@
 import React from "react";
 import "./PhoneList.scss";
 import PhoneItem from './../PhoneItem/PhoneItem';
+import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 class PhoneList extends React.Component {
@@ -45,19 +47,28 @@ class PhoneList extends React.Component {
                     </div>
                     :
                     <>
-                        <h2 className="list__title">Find your phone</h2>
-                        {this.state.phones && (
-                            <ul className="list__container">
-                                {this.state.phones.map((phone, index) => {
-                                    return (
-                                        <PhoneItem
-                                            key={index}
-                                            id={"phone-" + phone.id.toString()}
-                                            information={phone}
-                                        />
-                                    );
-                                })}
-                            </ul>
+                        <div className="form__hint">
+                            <p>Do you want to add a new phone?</p>
+                            <Link to="/form">
+                                <Button variant="outlined" size="large">Click here</Button>
+                            </Link>
+                        </div>
+
+                        {this.state.phones && this.state.phones.length > 0 && (
+                            <>
+                                <h2 className="list__title">Find your phone</h2>
+                                <ul className="list__container">
+                                    {this.state.phones.map((phone, index) => {
+                                        return (
+                                            <PhoneItem
+                                                key={index}
+                                                id={"phone-" + phone.id.toString()}
+                                                information={phone}
+                                            />
+                                        );
+                                    })}
+                                </ul>
+                            </>
                         )}
                     </>
                 }

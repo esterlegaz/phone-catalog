@@ -16,6 +16,17 @@
     }
 }
 
+.form__hint {
+    color: #1f735e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+    }
+}
+
 .spinner__container {
     display: flex;
     align-items: center;

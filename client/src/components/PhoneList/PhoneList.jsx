@@ -59,8 +59,6 @@ class PhoneList extends React.Component {
                 information={phone}
             />
         })
-
-
     }
 
     filterPhones = () => {
@@ -76,14 +74,7 @@ class PhoneList extends React.Component {
             !this.props.isLoading &&
             <>
                 <div className="list__search">
-                    <TextField onKeyUp={this.handleChange} id="search" label="Search your phone" type="search" />
-                </div>
-
-                <div className="form__hint">
-                    <p>Do you want to add a new phone?</p>
-                    <Link to="/form">
-                        <Button variant="outlined" size="large">Click here</Button>
-                    </Link>
+                    <TextField onKeyUp={this.handleChange} id="search" label="Search your phone" type="text" />
                 </div>
 
                 {this.filterPhones() && this.filterPhones().length > 0
@@ -101,11 +92,17 @@ class PhoneList extends React.Component {
                                 })}
 
                             </ul>
+                            <div className="form__hint">
+                                <p>Do you want to add a new phone?</p>
+                                <Link to="/form">
+                                    <Button variant="outlined" size="large">Click here</Button>
+                                </Link>
+                            </div>
                         </>
                     )
                     :
                     <p className="list__empty">
-                        No results found. Please, try again.
+                        Your search of "{this.state.searchTerm}" returned no results. Please, try again.
                     </p>
 
                 }

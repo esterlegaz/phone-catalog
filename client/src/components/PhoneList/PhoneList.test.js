@@ -1,16 +1,35 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
+import { Provider } from 'react-redux';
+import renderer from 'react-test-renderer';
+import configureStore from 'redux-mock-store';
+import { startLoading } from './../../store/global/globalActions';
 import PhoneList from './PhoneList';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { Link , Router} from "react-router-dom";
 
-Enzyme.configure({ adapter: new Adapter() });
+const mockStore = configureStore([]);
 
 describe('PhoneList', () => {
-    const wrapper = shallow(<PhoneList />);
+    let store;
+    let component;
 
-    it('should render a div', () => {
-        expect(wrapper.find('div')).toHaveLength(1);
+    beforeEach(() => {
+        store = mockStore({
+            global: { isLoading: false },
+        });
+
+        store.dispatch = jest.fn();
+
+        component = renderer.create(
+            <Provider store={store}>
+                <PhoneList />
+            </Provider>
+        );
+    });
+
+    it('should expect state property isLoading to be true when the action startLoading is called', () => {
+        expect(store.dispatch).toHaveBeenCalledTimes(1);
+        expect(store.dispatch).toHaveBeenCalledWith(
+            startLoading({ payload: true })
+        );
     });
 
 });

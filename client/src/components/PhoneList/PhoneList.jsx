@@ -66,10 +66,8 @@ class PhoneList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    const isLoading = state.global.isLoading;
 
     return {
-        isLoading
     };
 };
 

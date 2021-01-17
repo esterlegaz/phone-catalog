@@ -4,6 +4,7 @@ import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import { startLoading } from './../../store/global/globalActions';
 import PhoneList from './PhoneList';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const mockStore = configureStore([]);
 
@@ -20,7 +21,9 @@ describe('PhoneList', () => {
 
         component = renderer.create(
             <Provider store={store}>
-                <PhoneList />
+                <Router>
+                    <PhoneList />
+                </Router>
             </Provider>
         );
     });

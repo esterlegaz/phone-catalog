@@ -59,8 +59,6 @@ class PhoneList extends React.Component {
                 information={phone}
             />
         })
-
-
     }
 
     filterPhones = () => {

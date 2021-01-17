@@ -32,8 +32,9 @@ class Form extends React.Component {
 
         this.setState({
             [field]: value,
+        }, () => {
+            this.isFormCompleted();
         });
-        this.isFormCompleted();
     };
 
     isFormCompleted = () => {
@@ -82,7 +83,7 @@ class Form extends React.Component {
                 <div className="form__hint">
                     <p >Your phone has been successfully created.</p>
                     <Link to="/">
-                        <Button variant="outlined" size="large">Go back</Button>
+                        <Button variant="outlined" size="large">Go to catalog</Button>
                     </Link>
                 </div >
                 :
@@ -95,7 +96,7 @@ class Form extends React.Component {
                             name='name'
                             variant='outlined'
                             label='Name'
-                            onChange={this.handleChange}
+                            onKeyUp={this.handleChange}
                         />
                     </div>
                     <div className="input__container">
@@ -105,7 +106,7 @@ class Form extends React.Component {
                             name='imgUrl'
                             variant='outlined'
                             label='Image URL'
-                            onChange={this.handleChange}
+                            onKeyUp={this.handleChange}
                         />
                     </div>
                     <div className="input__container">
@@ -115,7 +116,7 @@ class Form extends React.Component {
                             name='manufacturer'
                             variant='outlined'
                             label='Manufacturer'
-                            onChange={this.handleChange}
+                            onKeyUp={this.handleChange}
                         />
                     </div>
                     <div className="input__container">
@@ -125,7 +126,7 @@ class Form extends React.Component {
                             name='color'
                             variant='outlined'
                             label='Color'
-                            onChange={this.handleChange}
+                            onKeyUp={this.handleChange}
                         />
                     </div>
                     <div className="input__container">
@@ -136,7 +137,7 @@ class Form extends React.Component {
                             name='price'
                             variant='outlined'
                             label='Price'
-                            onChange={this.handleChange}
+                            onKeyUp={this.handleChange}
                         />
                     </div>
                     <div className="input__container">
@@ -146,7 +147,7 @@ class Form extends React.Component {
                             name='screen'
                             variant='outlined'
                             label='Screen'
-                            onChange={this.handleChange}
+                            onKeyUp={this.handleChange}
                         />
                     </div>
                     <div className="input__container">
@@ -156,7 +157,7 @@ class Form extends React.Component {
                             name='processor'
                             variant='outlined'
                             label='Processor'
-                            onChange={this.handleChange}
+                            onKeyUp={this.handleChange}
                         />
                     </div>
                     <div className="input__container">
@@ -166,7 +167,7 @@ class Form extends React.Component {
                             name='ram'
                             variant='outlined'
                             label='RAM'
-                            onChange={this.handleChange}
+                            onKeyUp={this.handleChange}
                         />
                     </div>
                     <div className="input__container">
@@ -178,7 +179,7 @@ class Form extends React.Component {
                             multiline
                             rows={2}
                             variant='outlined'
-                            onChange={this.handleChange}
+                            onKeyUp={this.handleChange}
                         />
                     </div>
                     <div className="input__container">
@@ -190,7 +191,7 @@ class Form extends React.Component {
                             multiline
                             rows={4}
                             variant='outlined'
-                            onChange={this.handleChange}
+                            onKeyUp={this.handleChange}
                         />
                     </div>
 

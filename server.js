@@ -31,7 +31,7 @@ app.post('/create-phone', (req, res) => {
       description: req.body.description,
       color: req.body.color,
       price: req.body.price,
-      imgUrl: "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_78287785/fee_325_225_png/Apple-iPhone-12--Blanco--64-GB--5G--6.1%22-OLED-Super-Retina-XDR--Chip-A14-Bionic--iOS",
+      imgUrl: req.body.imgUrl,
       screen: req.body.screen,
       processor: req.body.processor,
       ram: req.body.ram,

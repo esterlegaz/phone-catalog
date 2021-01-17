@@ -19,6 +19,7 @@ class Form extends React.Component {
             ram: '',
             description: '',
             extraInfo: '',
+            imgUrl: '',
             isButtonDisabled: true,
             isFormBeingSent: false,
             successfulPOST: false
@@ -94,6 +95,16 @@ class Form extends React.Component {
                             name='name'
                             variant='outlined'
                             label='Name'
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                    <div className="input__container">
+                        <TextField
+                            id="imgUrl"
+                            required
+                            name='imgUrl'
+                            variant='outlined'
+                            label='Image URL'
                             onChange={this.handleChange}
                         />
                     </div>
@@ -200,10 +211,7 @@ class Form extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    const isLoading = state.global.isLoading;
-
     return {
-        isLoading
     };
 };
 

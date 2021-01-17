@@ -105,7 +105,7 @@ class PhoneList extends React.Component {
                     )
                     :
                     <p className="list__empty">
-                        No results found. Please, try again.
+                        Your search of "{this.state.searchTerm}" returned no results. Please, try again.
                     </p>
 
                 }

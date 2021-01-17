@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import "./PhoneItem.scss";
+import { checkURL } from './../../services/Utils';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,6 +20,14 @@ const useStyles = makeStyles((theme) => ({
     '@media (max-width: 768px)': {
         root: {
             maxWidth: 300
+        },
+    },
+    '@media (min-width: 768px)': {
+        card: {
+            height: 350,
+            overflowY: 'scroll',
+            padding: 20,
+            marginBottom: 20,
         },
     },
     media: {
@@ -45,6 +54,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PhoneItem(props) {
+    const DEFAULT_IMG = 'https://www.ecpgr.cgiar.org/fileadmin/templates/ecpgr.org/Assets/images/No_Image_Available.jpg';
+    const IS_IMG_CORRECT = checkURL(props.information.imgUrl);
+    const IMG = (IS_IMG_CORRECT) ? props.information.imgUrl : DEFAULT_IMG;
+
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -61,7 +74,7 @@ export default function PhoneItem(props) {
                 />
                 <CardMedia
                     className={classes.media}
-                    image={props.information.imgUrl}
+                    image={IMG}
                     title={props.information.name}
                 />
                 <CardContent>
@@ -82,7 +95,7 @@ export default function PhoneItem(props) {
                     </IconButton>
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
-                    <CardContent>
+                    <CardContent className={classes.card}>
                         <Typography paragraph className={classes.information}>
                             <span className="card__extraTitle">
                                 Color:&nbsp;

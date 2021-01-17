@@ -1,7 +1,12 @@
-.list__title {
-    text-align: center;
-    color: #1f735e;
+.list__search {
+    display: flex;
+    justify-content: center;
     font-size: 2rem;
+    margin-top: 30px;
+
+    div {
+        width: 250px;
+    }
 }
 
 .list__container {
@@ -27,13 +32,8 @@
     }
 }
 
-.spinner__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-
-    svg {
-        color: #1f735e;
-    }
+.list__empty {
+    color: #1f735e;
+    font-size: 2rem;
+    text-align: center;
 }

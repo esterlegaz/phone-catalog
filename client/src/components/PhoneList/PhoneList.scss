@@ -1,0 +1,39 @@
+.list__search {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin-top: 30px;
+
+    div {
+        width: 250px;
+    }
+}
+
+.list__container {
+    @media all and(min-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 10%;
+    }
+
+    @media all and(min-width: 992px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.form__hint {
+    color: #1f735e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.list__empty {
+    color: #1f735e;
+    font-size: 2rem;
+    text-align: center;
+}

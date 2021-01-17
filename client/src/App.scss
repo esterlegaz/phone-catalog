@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+.header__title {
+  margin: 0;
+
+  a {
+    background: #1f735e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 125px;
+    font-size: 3rem;
+    text-decoration: none;
+  }
+}

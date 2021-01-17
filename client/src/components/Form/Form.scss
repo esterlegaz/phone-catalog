@@ -1,0 +1,32 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.input__container {
+    margin-bottom: 10px;
+    width: 350px;
+
+    @media all and(max-width: 768px) {
+        width: 250px;
+    }
+
+    div {
+        width: 100%;
+    }
+}
+
+.form__hint {
+    color: #1f735e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        color: #1f735e;
+        font-size: 2rem;
+        text-decoration: none;
+    }
+}

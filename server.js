@@ -1,53 +1,54 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const formidable = require('express-formidable');
+const fs = require('fs');
 
 const app = express();
 const port = process.env.PORT || 5000;
-const phones = [
-    {
-        "id": 0,
-        "name": "iPhone 7",
-        "manufacturer": "Apple",
-        "description": "lorem ipsum dolor sit amet consectetur.",
-        "color": "black",
-        "price": 769,
-        "imageFileName": "iPhone_7.png",
-        "screen": "4,7 inch IPS",
-        "processor": "A10 Fusion",
-        "ram": 2
-    },
-    {
-        "id": 0,
-        "name": "iPhone 10",
-        "manufacturer": "Apple",
-        "description": "lorem ipsum dolor sit amet consectetur.",
-        "color": "pink",
-        "price": 900,
-        "imageFileName": "IPhone_7.png",
-        "screen": "4,9 inch IPS",
-        "processor": "A10 Fusion",
-        "ram": 3
-    },
-    {
-        "id": 0,
-        "name": "iPhone 12",
-        "manufacturer": "Apple",
-        "description": "lorem ipsum dolor sit amet consectetur.",
-        "color": "white",
-        "price": 1009,
-        "imageFileName": "IPhone_7.png",
-        "screen": "5,8 inch IPS",
-        "processor": "A10 Fusion",
-        "ram": 4
-    },
-];
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/api/phones', (req, res) => {
-    res.send(phones);
+app.get('/phones', (req, res) => {
+  // Timeout included to simulate API delayed response
+  setTimeout(() => {
+    fs.readFile('./data/phones.json', (err, json) => {
+      const obj = JSON.parse(json);
+      res.json(obj);
+    });
+  }, 2000);
 });
 
+app.post('/create-phone', (req, res) => {
+  let parsedFile;
+
+  fs.readFile('./data/phones.json', (error, file) => {
+    parsedFile = JSON.parse(file);
+    const newPhone = {
+      id: parsedFile.length,
+      name: req.body.name,
+      manufacturer: req.body.manufacturer,
+      description: req.body.description,
+      color: req.body.color,
+      price: req.body.price,
+      imgUrl: req.body.imgUrl,
+      screen: req.body.screen,
+      processor: req.body.processor,
+      ram: req.body.ram,
+      extraInfo: req.body.extraInfo
+    };
+
+    parsedFile.push(newPhone);
+    const stringifiedFile = JSON.stringify(parsedFile);
+    setTimeout(() => {
+      fs.writeFile('./data/phones.json', stringifiedFile, (error) => {
+        if (error) {
+          console.error(error);
+        }
+        res.send(parsedFile);
+      });
+    }, 2000);
+  });
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

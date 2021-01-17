@@ -120,6 +120,7 @@ class Form extends React.Component {
                     <div className="input__container">
                         <TextField
                             id="price"
+                            type="number"
                             required
                             name='price'
                             variant='outlined'

@@ -22,6 +22,14 @@ const useStyles = makeStyles((theme) => ({
             maxWidth: 300
         },
     },
+    '@media (min-width: 768px)': {
+        card: {
+            height: 350,
+            overflowY: 'scroll',
+            padding: 20,
+            marginBottom: 20,
+        },
+    },
     media: {
         height: 0,
         paddingTop: '50%',
@@ -87,7 +95,7 @@ export default function PhoneItem(props) {
                     </IconButton>
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
-                    <CardContent>
+                    <CardContent className={classes.card}>
                         <Typography paragraph className={classes.information}>
                             <span className="card__extraTitle">
                                 Color:&nbsp;

@@ -9,7 +9,7 @@ It also includes the usage of [Material-UI](https://material-ui.com/) for some i
 
 - Clone the repo.
 - Run ```npm run installAll``` in the terminal.
-- Run ```npm run dev``` and the project will be display, including the API server.
+- Run ```npm run dev``` and the project will be displayed, including the API server.
 - Run ```npm run test``` to launch the frontend testing.
 
 ## Requirements

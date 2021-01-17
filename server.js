@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/phones', (req, res) => {
   // Timeout included to simulate API delayed response
-  setTimeout( () => {
+  setTimeout(() => {
     fs.readFile('./data/phones.json', (err, json) => {
       const obj = JSON.parse(json);
       res.json(obj);
@@ -37,16 +37,17 @@ app.post('/create-phone', (req, res) => {
       ram: req.body.ram,
       extraInfo: req.body.extraInfo
     };
-   
+
     parsedFile.push(newPhone);
     const stringifiedFile = JSON.stringify(parsedFile);
-
-    fs.writeFile('./data/phones.json', stringifiedFile, (error) => {
-      if (error) {
-        console.error(error);
-      }
-      res.send(parsedFile);
-    });
+    setTimeout(() => {
+      fs.writeFile('./data/phones.json', stringifiedFile, (error) => {
+        if (error) {
+          console.error(error);
+        }
+        res.send(parsedFile);
+      });
+    }, 2000);
   });
 });
 

@@ -20,7 +20,7 @@ class PhoneList extends React.Component {
 
     listMenuItems = () => {
         this.props.startLoading();
-        fetch("/phones")
+        fetch('/phones')
             .then((response) => {
                 return response.json();
             })

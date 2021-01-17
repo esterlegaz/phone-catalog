@@ -53,6 +53,19 @@
     },
     {
         "id": 4,
+        "name": "Xiaomi Mi 6",
+        "manufacturer": "Xiaomi",
+        "description": "Donec id fermentum nibh rutrum quis tempus eget.",
+        "color": "black",
+        "price": 311,
+        "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/71v53ikMQ9L._AC_SY879_.jpg",
+        "screen": "5,15 inch IPS",
+        "processor": "Qualcomm Snapdragon 835",
+        "ram": 6,
+        "extraInfo": "Donec id fermentum nibh. Duis euismod, libero non sollicitudin mattis, nunc orci convallis augue, non ultricies neque lacus et sem. Pellentesque pharetra urna in blandit elementum. Cras vitae convallis ipsum, et convallis arcu. Sed mollis felis nunc, in dapibus libero pretium ac. Integer egestas ex ut nisl condimentum blandit. Aenean fringilla ullamcorper elit, quis scelerisque est vestibulum congue. Duis eget ante vulputate, fringilla urna quis, tempus risus. Vestibulum eget lorem ultrices, bibendum turpis a, hendrerit orci. Cras sollicitudin mauris in posuere facilisis. Curabitur a vehicula velit, id suscipit orci. Proin vehicula tempor nibh sed mollis."
+    },
+    {
+        "id": 5,
         "name": "iPhone 12",
         "manufacturer": "Apple",
         "description": "Sed leo mi, rutrum quis tempus eget, finibus eget sem.",
@@ -65,7 +78,7 @@
         "extraInfo": "Sed leo mi, rutrum quis tempus eget, finibus eget sem. Fusce ac pulvinar nulla, pharetra bibendum urna. Aenean placerat non tortor vel dictum. Pellentesque iaculis, elit eu efficitur elementum, diam ante eleifend ex, ac molestie risus nibh nec nibh. Donec vehicula vulputate mauris, sed condimentum lorem dignissim et. Etiam vestibulum vestibulum elit et ornare. Nunc blandit felis quis felis tincidunt, sit amet interdum lectus euismod. Nam ligula orci, sodales ut nisi sed, volutpat accumsan orci. Nulla molestie augue sed iaculis consequat. Sed scelerisque sem vel arcu semper, quis tincidunt dui tristique. Nam neque tortor, dapibus a viverra nec, aliquet in nisl. Vivamus a libero et nunc mollis pellentesque et eu nulla. Aliquam porta enim vel tortor blandit rutrum. Nam facilisis porta fringilla. Suspendisse hendrerit at magna in bibendum. Donec maximus ligula a dolor venenatis venenatis."
     },
     {
-        "id": 5,
+        "id": 6,
         "name": "iPhone 12",
         "manufacturer": "Apple",
         "description": "Donec id fermentum nibh.",
